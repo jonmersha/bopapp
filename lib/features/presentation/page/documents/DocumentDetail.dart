@@ -6,7 +6,6 @@ import 'package:bop/features/presentation/page/home/main_branch_operation_page.d
 import 'package:bop/features/presentation/widget/app_icon.dart';
 import 'package:bop/features/utils/app_constants.dart';
 import 'package:bop/features/utils/dimensions.dart';
-import 'package:flutter_share_me/flutter_share_me.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

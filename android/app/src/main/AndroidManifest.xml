@@ -1,19 +1,11 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.bop.besheger.bop">
    <application
         android:label="bop"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-       <provider
-           android:name="androidx.core.content.FileProvider"
-           android:authorities="${applicationId}.com.shekarmudaliyar.social_share"
-           android:exported="false"
-           android:grantUriPermissions="true"
-           tools:replace="android:authorities">
 
-       </provider>
 
         <activity
             android:name=".MainActivity"
