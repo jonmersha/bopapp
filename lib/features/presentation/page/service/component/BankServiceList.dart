@@ -1,7 +1,8 @@
 import 'package:bop/features/controllers/BranchServiceController.dart';
-import 'package:bop/features/presentation/page/bop_details/SericeDetail.dart';
-import 'package:bop/features/presentation/page/home/components/service_card.dart';
+import 'package:bop/features/presentation/page/service/component/service_card.dart';
 import 'package:bop/features/presentation/page/home/components/small_card_for_listing.dart';
+import 'package:bop/features/presentation/page/service/detail_service_list.dart';
+import 'package:bop/features/presentation/page/service/service_list.dart';
 import 'package:bop/features/utils/app_colors.dart';
 import 'package:bop/features/utils/app_constants.dart';
 import 'package:bop/features/utils/dimensions.dart';
@@ -29,8 +30,8 @@ class _ServiceListState extends State<ServiceList> {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: (){
-                Get.to(()=>ServiceDetail(serviceModel: serviceController.serviceList[index], recommendedProductController: serviceController,
-                ),transition: Transition.leftToRightWithFade,duration: const Duration(milliseconds: 800));
+                Get.to(()=>DetailServiceList(serviceModel: serviceController.serviceList[index], recommendedProductController: serviceController,),
+                    transition: Transition.leftToRightWithFade,duration: const Duration(milliseconds: 800));
               },
 
               child: Container(
@@ -65,7 +66,7 @@ class _ServiceListState extends State<ServiceList> {
                             color: Colors.white30),
                         child: Padding(
                           padding: EdgeInsets.only(left: Dimensions.width10),
-                          child: ServiceCard(product:serviceController.serviceList[index]),
+                          child: ServiceCard(service:serviceController.serviceList[index]),
                         ),
                       ),
                     ),

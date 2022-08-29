@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../utils/app_colors.dart';
 import '../../widget/BigText.dart';
-import 'components/BankServiceBody.dart';
+import '../service/component/BankServiceBody.dart';
 
 class MainOperationPage extends StatefulWidget {
   const MainOperationPage({Key? key}) : super(key: key);

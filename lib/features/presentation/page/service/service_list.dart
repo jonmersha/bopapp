@@ -12,10 +12,10 @@ import 'package:get/get.dart';
 import '../home/main_branch_operation_page.dart';
 
 
-class ServiceDetail extends StatelessWidget {
+class BranchService extends StatelessWidget {
   final Service serviceModel;
   final BranchServiceController recommendedProductController;
-  ServiceDetail({Key? key, required this.serviceModel, required this.recommendedProductController}) : super(key: key);
+  BranchService({Key? key, required this.serviceModel, required this.recommendedProductController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

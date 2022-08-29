@@ -33,7 +33,6 @@ class DocumentDetail extends StatelessWidget {
                 height: 100,
                 decoration: const BoxDecoration(
                     color: Colors.blue),
-                child: Text(documentModel.description!),
               )
           ),
           Positioned(
