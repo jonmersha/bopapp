@@ -11,11 +11,11 @@ import 'features/route/route_helper.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dep.init();
-  runApp(MyApp());
+  runApp(BranchOperations());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class BranchOperations extends StatelessWidget {
+  const BranchOperations({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -23,10 +23,10 @@ class MyApp extends StatelessWidget {
     Get.find<DocumentController>().getPopularProductList();
     Get.find<BranchServiceController>().getRecommendedProductList();
 
-    return GetMaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: '',
-      home: const MainOperationPage(),
+      home: MainOperationPage(),
       initialRoute: RouteHelper.initial,
     );
   }
