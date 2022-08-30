@@ -16,30 +16,18 @@ class DocumentController extends GetxController{
   int get quantity=>_quantity;
 
 
-  Future<void> getPopularProductList() async{
+  Future<void> getDocumentList() async{
     Response response = await documentRepo.getPopularProductList();
     if(response.statusCode==200){
       //print("got Products====================================");
       _documentList=[];
       _documentList.addAll(DocumentModel.fromJson(response.body).document);
-      //_documentList.addAll(BankServiceModel.fromJson(response.body).description);
-      print(response.body);
+      //print(response.body);
       update();
       _isLoaded=true;
     }else{
 
     }
-
-
-  }
-  void setQuantity(bool isIncrement){
-    if(isIncrement){
-      _quantity++;
-    }
-    else{
-      _quantity--;
-    }
-
   }
 
 

@@ -9,6 +9,5 @@ class DocumentRepository extends GetxService{
   
   Future<Response> getPopularProductList() async{
     return await apIClient.getData(AppConstants.DOCUMENTS);
-    
   }
 }

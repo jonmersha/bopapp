@@ -2,6 +2,7 @@ import 'package:bop/features/controllers/DocumentController.dart';
 import 'package:bop/features/model/document_model.dart';
 
 import 'package:bop/features/presentation/page/documents/DocumentDetail.dart';
+import 'package:bop/features/presentation/page/documents/document_section_list_container.dart';
 import 'package:bop/features/presentation/page/home/components/small_card.dart';
 import 'package:bop/features/utils/app_colors.dart';
 import 'package:bop/features/utils/app_constants.dart';
@@ -45,14 +46,14 @@ class _DocumentSliderState extends State<DocumentSlider> {
   Widget build(BuildContext context) {
     return        Column(
       children: [
-        GetBuilder<DocumentController>(builder: (popularProduct){
-          return popularProduct.isLoaded?Container(
+        GetBuilder<DocumentController>(builder: (documentController){
+          return documentController.isLoaded?Container(
             height: Dimensions.pageView,
             child: PageView.builder(
                 controller: pageController,
-                itemCount: popularProduct.documentList.length,
+                itemCount: documentController.documentList.length,
                 itemBuilder: (context, position) {
-                  return _buildPageItem(position, popularProduct.documentList[position],popularProduct);
+                  return _buildPageItem(position, documentController.documentList[position],documentController);
                 }),
           ):CircularProgressIndicator(
             color: AppColors.mainColor,
@@ -106,7 +107,8 @@ class _DocumentSliderState extends State<DocumentSlider> {
         children: [
           GestureDetector(
             onTap: (){
-              Get.to(()=>DocumentDetail(documentModel: productModel,documentController: popularProductController),
+              Get.to(()=>DocumentSectionListContainer(documentModel: productModel,documentSectionController: popularProductController),
+              //Get.to(()=>DocumentDetail(documentModel: productModel,documentController: popularProductController),
                   transition: Transition.leftToRightWithFade,duration: Duration(milliseconds: 800));
             },
             child: Align(
@@ -127,7 +129,7 @@ class _DocumentSliderState extends State<DocumentSlider> {
                     color: index.isEven ? Color(0XFF69c5df) : Color(0XFF69c500),
                     image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage(AppConstants.IMAGE_URL+productModel.image!))),
+                        image: NetworkImage(AppConstants.IMAGE_URL+productModel.documentImagePath!))),
               ),
             ),
           ),

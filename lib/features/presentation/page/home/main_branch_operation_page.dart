@@ -11,11 +11,9 @@ class MainOperationPage extends StatefulWidget {
   @override
   State<MainOperationPage> createState() => _MainOperationPageState();
 }
-
 class _MainOperationPageState extends State<MainOperationPage> {
   @override
   Widget build(BuildContext context) {
-    //print("Current Screen Size "+MediaQuery.of(context).size.height.toString());
     return Scaffold(
         body: Column(
       children: [
@@ -31,7 +29,7 @@ class _MainOperationPageState extends State<MainOperationPage> {
                   children:  [
                     BigText(
                       color:AppColors.mainColor,
-                      text:"Ethiopia",
+                      text:"COOPBANK",
                       size: 20,),
                     Row(
                       children: [

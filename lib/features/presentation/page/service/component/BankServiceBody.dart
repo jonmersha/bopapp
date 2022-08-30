@@ -1,6 +1,6 @@
 
 import 'package:bop/features/presentation/page/service/component/BankServiceList.dart';
-import 'package:bop/features/presentation/page/home/components/DocumentSlider.dart';
+import 'package:bop/features/presentation/page/documents/DocumentSlider.dart';
 import 'package:bop/features/presentation/widget/BigText.dart';
 import 'package:bop/features/presentation/widget/SmalText.dart';
 import 'package:bop/features/utils/dimensions.dart';
@@ -22,8 +22,6 @@ class _BankServiceBodyState extends State<BankServiceBody> {
       children: [
         DocumentSlider(),
         //Dots Section
-
-        //Popular Sectios
         SizedBox(
           height: Dimensions.margin30,
         ),

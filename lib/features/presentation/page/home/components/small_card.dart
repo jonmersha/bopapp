@@ -1,9 +1,6 @@
 
 import 'package:bop/features/model/document_model.dart';
 import 'package:bop/features/presentation/widget/BigText.dart';
-import 'package:bop/features/presentation/widget/SmalText.dart';
-import 'package:bop/features/presentation/widget/text_with_icon.dart';
-import 'package:bop/features/utils/app_colors.dart';
 
 import 'package:flutter/material.dart';
 
@@ -47,7 +44,7 @@ class SmallCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               BigText(
-                text: ducumentList.name!,
+                text: ducumentList.documentName!,
                 size: Dimensions.fontSize20,
               ),
               SizedBox(

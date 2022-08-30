@@ -1,5 +1,5 @@
 
-import 'package:bop/features/model/service_model.dart';
+import 'package:bop/features/model/document_section_model.dart';
 import 'package:bop/features/presentation/widget/BigText.dart';
 import 'package:bop/features/presentation/widget/SmalText.dart';
 
@@ -8,10 +8,10 @@ import 'package:bop/features/utils/dimensions.dart';
 
 import 'package:flutter/material.dart';
 
-class ServiceCard extends StatelessWidget {
-  final Service service;
-  const ServiceCard({
-    Key? key, required this.service,
+class SectionCard extends StatelessWidget {
+  final Section section;
+  const SectionCard({
+    Key? key, required this.section,
   }) : super(key: key);
 
   @override
@@ -21,7 +21,7 @@ class ServiceCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         BigText(
-          text: service.serviceName!,
+          text: section.sectionName!,
           size: Dimensions.fontSize20,
           color: AppColors.mainColor,
         ),
@@ -29,7 +29,7 @@ class ServiceCard extends StatelessWidget {
           height: Dimensions.height10,
         ),
         SmallText(
-          text: service.serviceDescription!,
+          text: section.sectionDescription!,
         ),
         SizedBox(
           height: Dimensions.height10,

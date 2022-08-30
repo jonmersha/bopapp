@@ -13,4 +13,9 @@ class ServiceRepository extends GetxService{
     return await apIClient.getData(AppConstants.BANKSERVICE);
 
   }
+
+  Future<Response> getServiceListDetailByID(int id) async{
+    return await apIClient.getData('${AppConstants.BANKSERVICEDETAIL}/?id=$id');
+
+  }
 }

@@ -1,5 +1,7 @@
 import 'package:bop/features/controllers/DocumentController.dart';
+import 'package:bop/features/controllers/document_section_controller.dart';
 import 'package:bop/features/model/document_model.dart';
+import 'package:bop/features/model/document_section_model.dart';
 import 'package:bop/features/presentation/page/documents/pdf_viwer.dart';
 import 'package:bop/features/presentation/page/documents/share_doc.dart';
 import 'package:bop/features/presentation/page/home/main_branch_operation_page.dart';
@@ -10,12 +12,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
-class DocumentDetail extends StatelessWidget {
-  final Document documentModel;
-  final DocumentController documentController;
+class SectionPDFView extends StatelessWidget {
+  final Section sectionModel;
 
-  const DocumentDetail(
-      {Key? key, required this.documentModel, required this.documentController})
+  final DocumentSectionController documentSectionController;
+
+  const SectionPDFView(
+      {Key? key, required this.sectionModel, required this.documentSectionController})
       : super(key: key);
 
   @override
@@ -55,18 +58,18 @@ class DocumentDetail extends StatelessWidget {
                       backGroundColor: Colors.white,
                     ),
                   ),
-        GestureDetector(
-          onTap: () {
-            Get.to(() => ShareDocument(),
-                transition: Transition.rightToLeftWithFade,
-                duration: const Duration(milliseconds: 800));
-          },
-          child: const AppIcon(
-                      iconData: Icons.share_outlined,
-                      iconSize: 30,
-                      iconColor: Colors.blue,
-                      backGroundColor: Colors.white)
-        )
+                  GestureDetector(
+                      onTap: () {
+                        Get.to(() => ShareDocument(),
+                            transition: Transition.rightToLeftWithFade,
+                            duration: const Duration(milliseconds: 800));
+                      },
+                      child: const AppIcon(
+                          iconData: Icons.share_outlined,
+                          iconSize: 30,
+                          iconColor: Colors.blue,
+                          backGroundColor: Colors.white)
+                  )
                 ],
               )),
           //Introduction of the food
@@ -80,30 +83,30 @@ class DocumentDetail extends StatelessWidget {
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(Dimensions.height20),
                         topRight: Radius.circular(Dimensions.height20)),
-                        color: Colors.white),
+                    color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10),
+                            ),
+                            color: Colors.white
                         ),
-                         color: Colors.white
-                      ),
-                        child:Text(documentModel.documentName!,
-                          style: const TextStyle(
-                            color: Colors.blue,
-                            fontSize: 20,
-                          ),
+                        child:Text(sectionModel.sectionName!,
+                            style: const TextStyle(
+                              color: Colors.blue,
+                              fontSize: 20,
+                            ),
                             textAlign: TextAlign.center
                         )
                     ),
                     Expanded(
-                      child: PDF(AppConstants.DOC_URL+documentModel.documentPath!),
+                      child: PDF(AppConstants.DOC_URL+sectionModel.documentPath!),
                     ),
                     SizedBox(
                       height: Dimensions.height20,

@@ -11,6 +11,9 @@ class AppConstants{
   static const String DOC_URL="${BASE_URL}/static/document/";
 
   static const String DOCUMENTS="/document";
+
   static const String BANKSERVICE="/service";
+  static const String BANKSERVICEDETAIL="/serviceid";
+  static const String DOCUMENTSCTION="/docsectionid";
 
 }

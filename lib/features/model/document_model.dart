@@ -19,18 +19,35 @@ class DocumentModel {
 }
 
 class Document {
-  String? name;
-  String? description;
-  String? doc_path;
-  String? image;
+  int? documentID;
+  String? documentName;
+  String? documentDescription;
+  String? documentPath;
+  String? documentImagePath;
+  int? isPublic;
+  String? documentCategory;
+  String? uploadDate;
 
-  Document({this.name, this.description,this.image,this.doc_path});
+  Document(
+      {this.documentID,
+        this.documentName,
+        this.documentDescription,
+        this.documentPath,
+        this.documentImagePath,
+        this.isPublic,
+        this.documentCategory,
+        this.uploadDate});
 
   Document.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    doc_path=json['doc_path'];
-    description = json['description'];
-    image = json['image'];
+    documentID = json['documentID'];
+    documentName = json['documentName'];
+    documentDescription = json['documentDescription'];
+    documentPath = json['documentPath'];
+    documentImagePath = json['documentImagePath'];
+    isPublic = json['isPublic'];
+    documentCategory = json['documentCategory'];
+    uploadDate = json['uploadDate'];
   }
+
 
 }

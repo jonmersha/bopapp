@@ -1,4 +1,8 @@
+
 import 'package:bop/features/controllers/BranchServiceController.dart';
+import 'package:bop/features/controllers/document_section_controller.dart';
+import 'package:bop/features/presentation/page/documents/components/section_card.dart';
+import 'package:bop/features/presentation/page/documents/section_pdf_viewer.dart';
 import 'package:bop/features/presentation/page/service/component/service_card.dart';
 import 'package:bop/features/presentation/page/service/detail_service_list_container.dart';
 import 'package:bop/features/utils/app_colors.dart';
@@ -7,29 +11,33 @@ import 'package:bop/features/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ServiceList extends StatefulWidget {
-  const ServiceList({Key? key}) : super(key: key);
+
+class SectionList extends StatefulWidget {
+  final int docId;
+   SectionList({Key? key, required this.docId}) : super(key: key);
   @override
-  State<ServiceList> createState() => _ServiceListState();
+  State<SectionList> createState() => _SectionListState();
 }
 
 
 
-class _ServiceListState extends State<ServiceList> {
+class _SectionListState extends State<SectionList> {
   @override
   Widget build(BuildContext context) {
-    return         GetBuilder<BranchServiceController>(builder: (serviceController){
-      return serviceController.isLoaded? ListView.builder(
+
+    Get.find<DocumentSectionController>().getDocumentSectionListByID(widget.docId);
+
+    return         GetBuilder<DocumentSectionController>(builder: (sectionController){
+      return sectionController.isLoaded? ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: serviceController.serviceList.length,
+          itemCount: sectionController.sectionList.length,
           itemBuilder: (context, index) {
             return GestureDetector(
-              onTap: (){
-                Get.to(()=>DetailServiceListContainer(serviceModel: serviceController.serviceList[index], recommendedProductController: serviceController,),
-                    transition: Transition.leftToRightWithFade,duration: const Duration(milliseconds: 800));
-              },
-
+               onTap: (){
+                 Get.to(()=>SectionPDFView(sectionModel: sectionController.sectionList[index], documentSectionController: sectionController,),
+                     transition: Transition.leftToRightWithFade,duration: const Duration(milliseconds: 800));
+               },
               child: Container(
                 margin: EdgeInsets.only(
                     left: Dimensions.width20, right: Dimensions.width20),
@@ -42,11 +50,12 @@ class _ServiceListState extends State<ServiceList> {
                       decoration: BoxDecoration(
                           borderRadius:
                           BorderRadius.circular(Dimensions.width10),
-                          color: Colors.amber,
-                          image:  DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(AppConstants.IMAGE_URL+serviceController.serviceList[index].serviceIconPath!)
-                          )),
+                          color: Colors.blue,
+                          // image:  DecorationImage(
+                          //     fit: BoxFit.cover,
+                          //     image: NetworkImage(AppConstants.IMAGE_URL+sectionController.sectionList[index].!)
+                          // )
+                      ),
                     ),
                     Expanded(
                       child: Container(
@@ -54,7 +63,6 @@ class _ServiceListState extends State<ServiceList> {
                         width: Dimensions.listViewTextView,
                         margin: const EdgeInsets.only(bottom: 7),
                         decoration: BoxDecoration(
-
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(Dimensions.width10),
                                 bottomRight:
@@ -62,7 +70,7 @@ class _ServiceListState extends State<ServiceList> {
                             color: Colors.white30),
                         child: Padding(
                           padding: EdgeInsets.only(left: Dimensions.width10),
-                          child: ServiceCard(service:serviceController.serviceList[index]),
+                          child: SectionCard(section:sectionController.sectionList[index]),
                         ),
                       ),
                     ),
@@ -76,4 +84,5 @@ class _ServiceListState extends State<ServiceList> {
     });
   }
 }
+
 

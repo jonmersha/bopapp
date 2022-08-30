@@ -1,14 +1,14 @@
 
 import 'package:flutter/material.dart';
 
-class PageItemBuiding extends StatefulWidget {
-  const PageItemBuiding({Key? key}) : super(key: key);
+class PageItemBuilding extends StatefulWidget {
+  const PageItemBuilding({Key? key}) : super(key: key);
 
   @override
-  State<PageItemBuiding> createState() => _PageItemBuidingState();
+  State<PageItemBuilding> createState() => _PageItemBuildingState();
 }
 
-class _PageItemBuidingState extends State<PageItemBuiding> {
+class _PageItemBuildingState extends State<PageItemBuilding> {
   @override
   Widget build(BuildContext context) {
     return Container();
