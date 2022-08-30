@@ -1,5 +1,6 @@
 
-import 'package:bop/features/model/document_section_model.dart';
+import 'package:bop/features/model/service_detail_model.dart';
+import 'package:bop/features/model/service_model.dart';
 import 'package:bop/features/presentation/widget/BigText.dart';
 import 'package:bop/features/presentation/widget/SmalText.dart';
 
@@ -8,10 +9,10 @@ import 'package:bop/features/utils/dimensions.dart';
 
 import 'package:flutter/material.dart';
 
-class SectionCard extends StatelessWidget {
-  final Section section;
-  const SectionCard({
-    Key? key, required this.section,
+class DetailserviceCard extends StatelessWidget {
+  final ServiceDetail serviceDetail;
+  const DetailserviceCard({
+    Key? key, required this.serviceDetail,
   }) : super(key: key);
 
   @override
@@ -19,10 +20,9 @@ class SectionCard extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
-
       children: [
         BigText(
-          text: section.sectionName!,
+          text: serviceDetail.serviceName!,
           size: Dimensions.fontSize20,
           color: AppColors.mainColor,
         ),
@@ -30,7 +30,7 @@ class SectionCard extends StatelessWidget {
           height: Dimensions.height10,
         ),
         SmallText(
-          text: section.sectionDescription!,
+          text: serviceDetail.seviceDescription!,
         ),
         SizedBox(
           height: Dimensions.height10,
@@ -40,6 +40,6 @@ class SectionCard extends StatelessWidget {
           MainAxisAlignment.spaceBetween,
         )
       ],
-    );v
+    );
   }
 }

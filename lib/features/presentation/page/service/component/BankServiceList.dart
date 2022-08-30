@@ -1,6 +1,6 @@
 import 'package:bop/features/controllers/BranchServiceController.dart';
 import 'package:bop/features/presentation/page/service/component/service_card.dart';
-import 'package:bop/features/presentation/page/service/detail_service_list_container.dart';
+import 'package:bop/features/presentation/page/service/main_service_list_container.dart';
 import 'package:bop/features/utils/app_colors.dart';
 import 'package:bop/features/utils/app_constants.dart';
 import 'package:bop/features/utils/dimensions.dart';
@@ -26,7 +26,7 @@ class _ServiceListState extends State<ServiceList> {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: (){
-                Get.to(()=>DetailServiceListContainer(serviceModel: serviceController.serviceList[index], recommendedProductController: serviceController,),
+                Get.to(()=>DetailServiceListContainer(serviceModel: serviceController.serviceList[index]),
                     transition: Transition.leftToRightWithFade,duration: const Duration(milliseconds: 800));
               },
 

@@ -1,7 +1,6 @@
 import 'package:bop/features/controllers/DocumentController.dart';
 import 'package:bop/features/model/document_model.dart';
 
-import 'package:bop/features/presentation/page/documents/DocumentDetail.dart';
 import 'package:bop/features/presentation/page/documents/document_section_list_container.dart';
 import 'package:bop/features/presentation/page/home/components/small_card.dart';
 import 'package:bop/features/utils/app_colors.dart';
@@ -134,7 +133,7 @@ class _DocumentSliderState extends State<DocumentSlider> {
             ),
           ),
          // SmallCard(productmodel: popularProductList)
-          SmallCard(ducumentList: popularProductController.documentList[index])
+          SmallCard(documentList: popularProductController.documentList[index])
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:bop/features/controllers/BranchServiceController.dart';
+import 'package:bop/features/controllers/service_detail_list_controller.dart';
 import 'package:bop/features/model/service_model.dart';
 import 'package:bop/features/presentation/page/service/component/BankServiceList.dart';
 import 'package:bop/features/presentation/page/service/detail_service_list.dart';
@@ -14,8 +15,8 @@ import '../home/main_branch_operation_page.dart';
 
 class DetailServiceListContainer extends StatelessWidget {
   final Service serviceModel;
-  final BranchServiceController recommendedProductController;
-  DetailServiceListContainer({Key? key, required this.serviceModel, required this.recommendedProductController}) : super(key: key);
+  //final ServiceListDetailController detailedServiceController;
+  DetailServiceListContainer({Key? key, required this.serviceModel}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +75,7 @@ class DetailServiceListContainer extends StatelessWidget {
                 Container(
                     padding: EdgeInsets.symmetric(horizontal: Dimensions.width20),
                     child:  ExpandableTextWidget(
-                        text: serviceModel.serviceDescription!)
+                        text: ""+serviceModel.serviceDescription!)
                 ),
                // Text("${ serviceModel.serviceDescription!}: \n Related Service Displayed here"),
                 DetailServiceList(id: serviceModel.serviceID!,)

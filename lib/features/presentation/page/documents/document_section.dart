@@ -4,7 +4,7 @@ import 'package:bop/features/controllers/document_section_controller.dart';
 import 'package:bop/features/presentation/page/documents/components/section_card.dart';
 import 'package:bop/features/presentation/page/documents/section_pdf_viewer.dart';
 import 'package:bop/features/presentation/page/service/component/service_card.dart';
-import 'package:bop/features/presentation/page/service/detail_service_list_container.dart';
+import 'package:bop/features/presentation/page/service/main_service_list_container.dart';
 import 'package:bop/features/utils/app_colors.dart';
 import 'package:bop/features/utils/app_constants.dart';
 import 'package:bop/features/utils/dimensions.dart';

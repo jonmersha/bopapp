@@ -1,14 +1,16 @@
 
 import 'package:bop/features/model/document_model.dart';
 import 'package:bop/features/presentation/widget/BigText.dart';
+import 'package:bop/features/presentation/widget/SmalText.dart';
+import 'package:bop/features/utils/app_colors.dart';
 
 import 'package:flutter/material.dart';
 
 import '../../../../utils/dimensions.dart';
 
 class SmallCard extends StatelessWidget {
- final Document ducumentList;
-  const SmallCard({Key? key,required this.ducumentList}) : super(key: key);
+ final Document documentList;
+  const SmallCard({Key? key,required this.documentList}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class SmallCard extends StatelessWidget {
         ),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(Dimensions.radius20),
-            color: Colors.white,
+            color: Colors.green,
             boxShadow: const [
               BoxShadow(
                   color: Color(0xffe8e8e8),
@@ -44,78 +46,15 @@ class SmallCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               BigText(
-                text: ducumentList.documentName!,
+                text: documentList.documentName!,
                 size: Dimensions.fontSize20,
+                color: Colors.white,
               ),
+
               SizedBox(
                 height: Dimensions.height10,
               ),
-              // Row(
-              //   children: [
-              //     Wrap(
-              //       children: List.generate(
-              //           5,
-              //               (index) => Icon(
-              //             Icons.star,
-              //             size: Dimensions.iconSize24,
-              //             color: Colors.green,
-              //           )),
-              //     ),
-              //     const SizedBox(
-              //       width: 5,
-              //     ),
-              //     SmallText(
-              //       text: ducumentList.name!,
-              //       size: Dimensions.fontSize12,
-              //     ),
-              //     const SizedBox(
-              //       width: 5,
-              //     ),
-              //     SmallText(
-              //       text: "78",
-              //       size: Dimensions.fontSize12,
-              //     ),
-              //     const SizedBox(
-              //       width: 5,
-              //     ),
-              //     SmallText(
-              //       text: "Comments",
-              //       size: Dimensions.fontSize11,
-              //     ),
-              //   ],
-              // ),
-              SizedBox(
-                height: Dimensions.height20,
-              ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     TextWithIcon(
-              //       text: "xml",
-              //       icon: Icons.circle,
-              //       iconColor: Colors.yellow,
-              //       iconSize: Dimensions.icon26,
-              //       textSize: Dimensions.fontSize12,
-              //       textColor: AppColors.textColor,
-              //     ),
-              //     TextWithIcon(
-              //       text: "Somes",
-              //       icon: Icons.location_on,
-              //       iconColor: Colors.green,
-              //       textColor: AppColors.textColor,
-              //       iconSize: Dimensions.icon26 - 3,
-              //       textSize: Dimensions.fontSize12,
-              //     ),
-              //     TextWithIcon(
-              //       text: "Time",
-              //       icon: Icons.timelapse,
-              //       iconColor: Colors.green,
-              //       textColor: AppColors.textColor,
-              //       iconSize: Dimensions.icon26 - 3,
-              //       textSize: Dimensions.fontSize12,
-              //     ),
-              //   ],
-              // )
+              SmallText(text: documentList.documentDescription!,color: Colors.yellow ,size: 12,)
             ],
           ),
         ),

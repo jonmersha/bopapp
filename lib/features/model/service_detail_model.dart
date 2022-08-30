@@ -1,7 +1,9 @@
 class DetailServiceModel {
-   late List<ServiceDetail> _serviceDetail;
-   List<ServiceDetail> get serviceDetail=>_serviceDetail;
+ late List<ServiceDetail> _serviceDetail;
+  List<ServiceDetail> get serviceDetail=>_serviceDetail;
+
   DetailServiceModel({required serviceDetail});
+
   DetailServiceModel.fromJson(Map<String, dynamic> json) {
     if (json['serviceDetail'] != null) {
       _serviceDetail = <ServiceDetail>[];
@@ -11,28 +13,29 @@ class DetailServiceModel {
     }
   }
 
+
 }
 
 class ServiceDetail {
-  int? documentID;
-  int? sectionId;
-  String? sectionName;
-  String? sectionDescription;
-  String? documentPath;
+  int? serviceID;
+  int? parentServcieID;
+  String? serviceName;
+  String? seviceDescription;
+  String? lOANDESC;
 
   ServiceDetail(
-      {this.documentID,
-        this.sectionId,
-        this.sectionName,
-        this.sectionDescription,
-        this.documentPath});
+      {this.serviceID,
+        this.parentServcieID,
+        this.serviceName,
+        this.seviceDescription,
+        this.lOANDESC});
 
   ServiceDetail.fromJson(Map<String, dynamic> json) {
-    documentID = json['documentID'];
-    sectionId = json['sectionId'];
-    sectionName = json['sectionName'];
-    sectionDescription = json['sectionDescription'];
-    documentPath = json['documentPath'];
+    serviceID = json['serviceID'];
+    parentServcieID = json['parentServcieID'];
+    serviceName = json['serviceName'];
+    seviceDescription = json['seviceDescription'];
+    lOANDESC = json['LOAN_DESC'];
   }
 
 

@@ -13,7 +13,7 @@ class AppConstants{
   static const String DOCUMENTS="/document";
 
   static const String BANKSERVICE="/service";
-  static const String BANKSERVICEDETAIL="/serviceid";
+  static const String BANKSERVICEDETAIL="/servicedetail";
   static const String DOCUMENTSCTION="/docsectionid";
 
 }

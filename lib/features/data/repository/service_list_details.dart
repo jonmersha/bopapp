@@ -5,10 +5,8 @@ import 'package:get/get.dart';
 class ServiceListDetailRepository extends GetxService{
   final ApIClient apIClient;
   ServiceListDetailRepository({required this.apIClient});
-  Future<Response> getDocumentSectionList() async{
-    return await apIClient.getData(AppConstants.DOCUMENTSCTION);
-  }
-  Future<Response> getDocumentSectionListByID(int id) async{
-    return await apIClient.getData('${AppConstants.DOCUMENTSCTION}/?id=$id');
+  Future<Response> getServiceDetailListByID(int id) async{
+    print('${AppConstants.BANKSERVICEDETAIL}/?id=$id');
+    return await apIClient.getData('${AppConstants.BANKSERVICEDETAIL}/?id=$id');
   }
 }

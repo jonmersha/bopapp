@@ -45,19 +45,19 @@ class BranchServiceController extends GetxController{
     }
 
   }
-  Future<void> getServiceListDetailByID(int id) async{
-    Response response = await serviceRepo.getServiceListDetailByID(id);
-    if(response.statusCode==200){
-      _serviceList=[];
-      _serviceList.addAll(DetailServiceModel.fromJson(response.body).serviceDetail);
-      _isLoaded=true;
-      update();
-    }else{
-      print(response.statusText);
-
-    }
-
-  }
+  // Future<void> getServiceListDetailByID(int id) async{
+  //   Response response = await serviceRepo.getServiceListDetailByID(id);
+  //   if(response.statusCode==200){
+  //     _serviceList=[];
+  //     _serviceList.addAll(DetailServiceModel.fromJson(response.body).serviceDetail);
+  //     _isLoaded=true;
+  //     update();
+  //   }else{
+  //     print(response.statusText);
+  //
+  //   }
+  //
+  // }
 
 
 

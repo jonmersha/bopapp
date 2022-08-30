@@ -1,6 +1,8 @@
 import 'package:bop/features/controllers/BranchServiceController.dart';
+import 'package:bop/features/controllers/service_detail_list_controller.dart';
+import 'package:bop/features/presentation/page/service/component/detail_service_card.dart';
 import 'package:bop/features/presentation/page/service/component/service_card.dart';
-import 'package:bop/features/presentation/page/service/detail_service_list_container.dart';
+import 'package:bop/features/presentation/page/service/main_service_list_container.dart';
 import 'package:bop/features/utils/app_colors.dart';
 import 'package:bop/features/utils/app_constants.dart';
 import 'package:bop/features/utils/dimensions.dart';
@@ -14,22 +16,20 @@ class DetailServiceList extends StatefulWidget {
   State<DetailServiceList> createState() => _DetailServiceListState();
 }
 
-
-
 class _DetailServiceListState extends State<DetailServiceList> {
   @override
   Widget build(BuildContext context) {
-    Get.find<BranchServiceController>().getServiceListDetailByID(widget.id);
+    Get.find<ServiceListDetailController>().geServiceListByID(widget.id);
 
-    return         GetBuilder<BranchServiceController>(builder: (serviceController){
-      return serviceController.isLoaded? ListView.builder(
+    return         GetBuilder<ServiceListDetailController>(builder: (serviceListDetailController){
+      return serviceListDetailController.isLoaded? ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: serviceController.serviceList.length,
+          itemCount: serviceListDetailController.serviceDetailList.length,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: (){
-                Get.to(()=>DetailServiceListContainer(serviceModel: serviceController.serviceList[index], recommendedProductController: serviceController,),
+                Get.to(()=>DetailServiceListContainer(serviceModel: serviceListDetailController.serviceDetailList[index]),
                     transition: Transition.leftToRightWithFade,duration: const Duration(milliseconds: 800));
               },
 
@@ -45,11 +45,13 @@ class _DetailServiceListState extends State<DetailServiceList> {
                       decoration: BoxDecoration(
                           borderRadius:
                           BorderRadius.circular(Dimensions.width10),
-                          color: Colors.amber,
-                          image:  DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(AppConstants.IMAGE_URL+serviceController.serviceList[index].serviceIconPath!)
-                          )),
+                          color: Colors.blue,
+
+                          // image:  DecorationImage(
+                          //     fit: BoxFit.cover,
+                          //     image: NetworkImage(AppConstants.IMAGE_URL+serviceListDetailController.serviceDetailList[index].serviceIconPath!)
+                          // )
+                      ),
                     ),
                     Expanded(
                       child: Container(
@@ -64,7 +66,7 @@ class _DetailServiceListState extends State<DetailServiceList> {
                             color: Colors.white30),
                         child: Padding(
                           padding: EdgeInsets.only(left: Dimensions.width10),
-                          child: ServiceCard(service:serviceController.serviceList[index]),
+                          child: DetailserviceCard(serviceDetail:serviceListDetailController.serviceDetailList[index]),
                         ),
                       ),
                     ),

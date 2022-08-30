@@ -50,7 +50,7 @@ class Dimensions{
 
 
   //list view size
-static double listViewIMG=screenWidth/3.25;
+static double listViewIMG=screenWidth/4.25;
 static double listViewTextView=screenWidth/3.25;
 //static double listViewIMG=screenWidth/3.25;
 
