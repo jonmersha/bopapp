@@ -2,7 +2,7 @@
 import 'package:bop/features/model/document_model.dart';
 import 'package:bop/features/presentation/widget/BigText.dart';
 import 'package:bop/features/presentation/widget/SmalText.dart';
-import 'package:bop/features/utils/app_colors.dart';
+
 
 import 'package:flutter/material.dart';
 
@@ -28,14 +28,16 @@ class SmallCard extends StatelessWidget {
         ),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(Dimensions.radius20),
-            color: Colors.green,
+            color: Color(0xff32373f),
             boxShadow: const [
               BoxShadow(
-                  color: Color(0xffe8e8e8),
+                  color: Color(0xff3d7ddc),
                   blurRadius: 5.0,
-                  offset: Offset(0, 5)),
-              BoxShadow(color: Colors.white, offset: Offset(5, 0))
-            ]),
+                  offset: Offset(-5, 5)),
+              // BoxShadow(
+              //     color: Color(0xff3d7ddc), offset: Offset(5, 0))
+            ]
+        ),
         child: Container(
           width: double.maxFinite,
           padding: EdgeInsets.only(
@@ -54,7 +56,7 @@ class SmallCard extends StatelessWidget {
               SizedBox(
                 height: Dimensions.height10,
               ),
-              SmallText(text: documentList.documentDescription!,color: Colors.yellow ,size: 12,)
+              SmallText(text: documentList.documentDescription!,color: Colors.white ,size: 12,)
             ],
           ),
         ),

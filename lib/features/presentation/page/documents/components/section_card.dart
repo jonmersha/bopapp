@@ -16,30 +16,30 @@ class SectionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Container(
 
-      children: [
-        BigText(
-          text: section.sectionName!,
-          size: Dimensions.fontSize20,
-          color: AppColors.mainColor,
-        ),
-        SizedBox(
-          height: Dimensions.height10,
-        ),
-        SmallText(
-          text: section.sectionDescription!,
-        ),
-        SizedBox(
-          height: Dimensions.height10,
-        ),
-        Row(
-          mainAxisAlignment:
-          MainAxisAlignment.spaceBetween,
-        )
-      ],
-    );v
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+
+        children: [
+          BigText(
+            text: section.sectionName!,
+            size: Dimensions.fontSize20,
+            color: AppColors.mainColor,
+          ),
+          SizedBox(
+            height: Dimensions.height10,
+          ),
+          SmallText(
+            text: section.sectionDescription!,
+            size: 12,color: AppColors.paraColor,
+          ),
+          SizedBox(
+            height: Dimensions.height10,
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -1,6 +1,7 @@
 
 
 import 'package:bop/features/controllers/DocumentController.dart';
+import 'package:bop/features/controllers/document_section_controller.dart';
 
 import 'package:bop/features/model/document_model.dart';
 import 'package:bop/features/presentation/page/documents/document_section.dart';
@@ -18,7 +19,6 @@ import '../home/main_branch_operation_page.dart';
 
 class DocumentSectionListContainer extends StatelessWidget {
   final Document documentModel;
-
   final DocumentController documentSectionController;
   DocumentSectionListContainer({Key? key, required this.documentModel, required this.documentSectionController}) : super(key: key);
   @override
@@ -37,9 +37,23 @@ class DocumentSectionListContainer extends StatelessWidget {
                       onTap: (){
                         Get.to(()=>MainOperationPage(),transition: Transition.rightToLeftWithFade,duration: Duration(milliseconds: 800));
                       },
-                      child: AppIcon(iconData: Icons.clear,backGroundColor: AppColors.mainColor,)
+                      child: AppIcon(
+                        iconData: Icons.arrow_back,
+                        backGroundColor: AppColors.mainColor,
+                      iconColor: Colors.white,
+                      iconSize: 30,)
                   ),
-                  AppIcon(iconData: Icons.shopping_cart_outlined,),
+
+                  GestureDetector(
+                    onTap: (){
+                    //  Get.find()
+                      Get.find<DocumentSectionController>().getDocumentSectionListByID(documentModel.documentID!);
+                    },
+                      child: AppIcon(iconData: Icons.refresh,
+                        backGroundColor: AppColors.mainColor,
+                        iconColor: Colors.white,
+                        iconSize: 30,)
+                  ),
                 ],
               ),
             ),
@@ -77,12 +91,12 @@ class DocumentSectionListContainer extends StatelessWidget {
             child: Column(
               children: [
                 Container(
+
                     padding: EdgeInsets.symmetric(horizontal: Dimensions.width20),
                     child:  ExpandableTextWidget(
                         text:documentModel.documentDescription!)
                 ),
-                // Text("${ serviceModel.serviceDescription!}: \n Related Service Displayed here"),
-                 SectionList(docId: documentModel.documentID!)
+                 SectionList(docId: documentModel.documentID!,document: documentModel,)
               ],
             ),
 

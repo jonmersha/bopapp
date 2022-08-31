@@ -113,7 +113,7 @@ class _DocumentSliderState extends State<DocumentSlider> {
             child: Align(
               alignment: Alignment.topCenter,
               child: Container(
-                // alignment: Alignment.topCenter,
+                 alignment: Alignment.topCenter,
                 height: Dimensions.pageViewContainer,
                 padding: EdgeInsets.only(
                     left: Dimensions.padding10,
@@ -123,7 +123,18 @@ class _DocumentSliderState extends State<DocumentSlider> {
                     left: Dimensions.padding10,
                     right: Dimensions.padding10,
                     top: Dimensions.padding10 ),
+
                 decoration: BoxDecoration(
+                    boxShadow: const [
+                      BoxShadow(
+                          color: Color(0xff32373f),
+                          blurRadius: 5.0,
+                          offset: Offset(-5, 5,)),
+                      BoxShadow(
+                          color: Color(0xff245094),
+                          blurRadius: 5.0,
+                          offset: Offset(5, -2))
+                    ],
                     borderRadius: BorderRadius.circular(Dimensions.radius20),
                     color: index.isEven ? Color(0XFF69c5df) : Color(0XFF69c500),
                     image: DecorationImage(

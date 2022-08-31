@@ -1,10 +1,7 @@
-
-import 'package:bop/features/controllers/BranchServiceController.dart';
 import 'package:bop/features/controllers/document_section_controller.dart';
+import 'package:bop/features/model/document_model.dart';
 import 'package:bop/features/presentation/page/documents/components/section_card.dart';
 import 'package:bop/features/presentation/page/documents/section_pdf_viewer.dart';
-import 'package:bop/features/presentation/page/service/component/service_card.dart';
-import 'package:bop/features/presentation/page/service/main_service_list_container.dart';
 import 'package:bop/features/utils/app_colors.dart';
 import 'package:bop/features/utils/app_constants.dart';
 import 'package:bop/features/utils/dimensions.dart';
@@ -14,7 +11,8 @@ import 'package:get/get.dart';
 
 class SectionList extends StatefulWidget {
   final int docId;
-   SectionList({Key? key, required this.docId}) : super(key: key);
+  final Document document;
+   SectionList({Key? key, required this.docId,required this.document}) : super(key: key);
   @override
   State<SectionList> createState() => _SectionListState();
 }
@@ -41,40 +39,57 @@ class _SectionListState extends State<SectionList> {
               child: Container(
                 margin: EdgeInsets.only(
                     left: Dimensions.width20, right: Dimensions.width20),
-                child: Row(
-                  children: [
-                    Container(
-                      margin:  const EdgeInsets.only(bottom: 7),
-                      height: Dimensions.listViewIMG,
-                      width: Dimensions.listViewIMG,
-                      decoration: BoxDecoration(
-                          borderRadius:
-                          BorderRadius.circular(Dimensions.width10),
-                          color: Colors.blue,
-                          // image:  DecorationImage(
-                          //     fit: BoxFit.cover,
-                          //     image: NetworkImage(AppConstants.IMAGE_URL+sectionController.sectionList[index].!)
-                          // )
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        //height: Dimensions.listViewTextView,
-                        width: Dimensions.listViewTextView,
-                        margin: const EdgeInsets.only(bottom: 7),
+                child: Container(
+                    margin:  const EdgeInsets.only(bottom: 15),
+                  decoration: const BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color(0xff32373f),
+                            blurRadius: 2.0,
+                            offset: Offset(-10, 2)
+                        ),
+                      //   BoxShadow(
+                      //       color: Color(0xff3d7ddc),
+                      //       blurRadius: 5.0,
+                      //       offset: Offset(1, 0))
+                       ]
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        margin:  const EdgeInsets.only(bottom: 7),
+                        height: Dimensions.listViewIMG,
+                        width: Dimensions.listViewIMG,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(Dimensions.width10),
-                                bottomRight:
-                                Radius.circular(Dimensions.width10)),
-                            color: Colors.white30),
-                        child: Padding(
-                          padding: EdgeInsets.only(left: Dimensions.width10),
-                          child: SectionCard(section:sectionController.sectionList[index]),
+                            borderRadius:
+                            BorderRadius.circular(Dimensions.width10),
+                            color: Colors.blue,
+                            image:  DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(AppConstants.IMAGE_URL+widget.document.documentImagePath!)
+                            )
                         ),
                       ),
-                    ),
-                  ],
+                      Expanded(
+                        child: Container(
+                          //height: Dimensions.listViewTextView,
+                          width: Dimensions.listViewTextView,
+                          margin: const EdgeInsets.only(bottom: 7),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(Dimensions.width10),
+                                  bottomRight:
+                                  Radius.circular(Dimensions.width10)),
+                              color: Colors.white30),
+                          child: Padding(
+                            padding: EdgeInsets.only(left: Dimensions.width10),
+                            child: SectionCard(section:sectionController.sectionList[index]),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );
