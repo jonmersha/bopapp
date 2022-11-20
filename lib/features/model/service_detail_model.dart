@@ -12,8 +12,6 @@ class DetailServiceModel {
       });
     }
   }
-
-
 }
 
 class ServiceDetail {

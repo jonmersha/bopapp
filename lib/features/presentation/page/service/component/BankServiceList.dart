@@ -54,7 +54,6 @@ class _ServiceListState extends State<ServiceList> {
                         width: Dimensions.listViewTextView,
                         margin: const EdgeInsets.only(bottom: 7),
                         decoration: BoxDecoration(
-
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(Dimensions.width10),
                                 bottomRight:

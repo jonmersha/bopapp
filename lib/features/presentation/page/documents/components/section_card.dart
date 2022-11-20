@@ -2,11 +2,10 @@
 import 'package:bop/features/model/document_section_model.dart';
 import 'package:bop/features/presentation/widget/BigText.dart';
 import 'package:bop/features/presentation/widget/SmalText.dart';
-
 import 'package:bop/features/utils/app_colors.dart';
 import 'package:bop/features/utils/dimensions.dart';
-
 import 'package:flutter/material.dart';
+
 
 class SectionCard extends StatelessWidget {
   final Section section;
